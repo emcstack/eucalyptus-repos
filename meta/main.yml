@@ -1,0 +1,45 @@
+galaxy_info:
+  author: John Preston [JMille]
+  description: Install the Eucalyptus repositories
+  company:
+  license: GPLv3
+  min_ansible_version: 1.2
+  #github_branch:
+  platforms:
+  - name: EL
+    versions:
+    - 6
+#    - 7
+  #- name: Ubuntu
+  #  versions:
+  #  - all
+  #  - lucid
+  #  - maverick
+  #  - natty
+  #  - oneiric
+  #  - precise
+  #  - quantal
+  #  - raring
+  #  - saucy
+  #  - trusty
+  #  - utopic
+  #  - vivid
+  #  - wily
+  #  - xenial
+  #- name: Debian
+  #  versions:
+  #  - all
+  #  - etch
+  #  - jessie
+  #  - lenny
+  #  - sid
+  #  - squeeze
+  #  - stretch
+  #  - wheezy
+  galaxy_tags:
+  - eucalyptus
+  - repositories
+  - yum
+  - aws
+
+dependencies: []
