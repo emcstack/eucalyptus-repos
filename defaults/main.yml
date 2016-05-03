@@ -1,2 +1,22 @@
 ---
 # defaults file for eucalyptus-repos
+
+eucalyptus_release_repo_url: http://downloads.eucalyptus.com/software/eucalyptus/4.2/centos/6/x86_64/eucalyptus-release-4.2-1.el6.noarch.rpm
+euca2ools_release_repo_url: http://downloads.eucalyptus.com/software/euca2ools/3.3/rhel/6/x86_64/euca2ools-release-3.3-1.el6.noarch.rpm
+epel_release_repo_url: http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+
+# Use specific URL for repos
+
+use_baseurl: false
+eucalyptus_repo_url: http://downloads.eucalyptus.com/software/eucalyptus/4.2/centos/6/x86_64/
+euca2ools_repo_url: http://downloads.eucalyptus.com/software/euca2ools/3.3/centos/6/x86_64/
+
+# for QA/CS
+
+cs_qa: false
+
+eucalyptus_latest: 4.2
+euca2ools_latest: 3.3
+
+eucalyptus_software_url: http://downloads.eucalyptus.com/software/eucalyptus/
+euca2ools_software_url: http://downloads.eucalyptus.com/software/euca2ools/

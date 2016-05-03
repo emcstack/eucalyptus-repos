@@ -1,2 +1,12 @@
 ---
 # tasks file for eucalyptus-repos
+
+- name: Install repos
+  include: repos.yml
+  when:
+  - not cs_qa
+
+- name: Install repos for CS/QA
+  include: cs_qa.yml
+  when:
+  - cs_qa

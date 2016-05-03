@@ -1,0 +1,14 @@
+[euca2ools]
+name=Euca2ools 3.3 - $basearch
+#mirrorlist=http://mirrors.eucalyptus.com/mirrors?product=euca2ools&distro=rhel&releasever=$releasever&basearch=$basearch&version=3.3
+baseurl={{ euca2ools_repo_url }}
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-euca2ools-release
+gpgcheck=1
+enabled=1
+
+[euca2ools-source]
+name=Euca2ools 3.3 - Source
+mirrorlist=http://mirrors.eucalyptus.com/mirrors?product=euca2ools&distro=rhel&releasever=$releasever&basearch=source&version=3.3
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-euca2ools-release
+gpgcheck=1
+enabled=0

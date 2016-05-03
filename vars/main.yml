@@ -1,2 +1,5 @@
 ---
 # vars file for eucalyptus-repos
+
+eucalyptus_version: "{{ eucalyptus_latest }}"
+euca2ools_version: "{{ euca2ools_latest }}"

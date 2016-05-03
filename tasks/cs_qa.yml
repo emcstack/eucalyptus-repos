@@ -1,0 +1,33 @@
+---
+# tasks file for eucalyptus-repos
+
+- name: Debug Eucalyptus release URL
+  shell: echo "{{ eucalyptus_software_url }}/{{ eucalyptus_version }}/centos/{{ hostvars[inventory_hostname]['ansible_distribution_major_version'] }}/{{ hostvars[inventory_hostname]['ansible_machine'] }}/"
+  register: eucalyptus_url_path
+
+- name: Get the eucalyptus release package
+  shell: curl "{{ eucalyptus_url_path.stdout_lines[0] }}" | grep -v image | grep release | awk -F\= '{print $4}'| awk -F\> '{print $1}' | grep {{ eucalyptus_version }} | sed 's/\"//g'
+  register: eucalyptus_release_package
+
+- name: Debug eucalyptus release
+  debug: msg="{{ eucalyptus_release_package.stdout_lines[0] }}"
+
+- name: Debug Euca2ools url PATH
+  shell: echo "{{ euca2ools_software_url }}/{{ euca2ools_version }}/centos/{{ hostvars[inventory_hostname]['ansible_distribution_major_version'] }}/{{ hostvars[inventory_hostname]['ansible_machine'] }}/"
+  register: euca2ools_url_path
+
+- name: Get the euca2ools release package
+  shell: curl "{{ euca2ools_url_path.stdout_lines[0] }}" | grep -v image | grep release | awk -F\= '{print $4}'| awk -F\> '{print $1}' | grep {{ euca2ools_version }} | sed 's/\"//g'
+  register: euca2ools_release_package
+
+- name: Debug euca2ools release
+  debug: msg="{{ euca2ools_release_package.stdout_lines[0] }}"
+
+- name: Install Eucalyptus release
+  yum: name="{{ eucalyptus_url_path.stdout }}/{{ eucalyptus_release_package.stdout_lines[0] }}" state=present
+
+- name: Install euca2ools
+  yum: name="{{ euca2ools_url_path.stdout }}/{{ euca2ools_release_package.stdout_lines[0] }}" state=present
+
+- name: Install epel repo
+  yum: name="{{ epel_repo_url }}" state=present

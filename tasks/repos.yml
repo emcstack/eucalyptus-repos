@@ -1,0 +1,16 @@
+# Pre requesites
+
+- name: Install Eucalyptus release repo
+  yum: name="{{ eucalyptus_release_repo_url }}" state=present
+
+- name: Install Euca2ools release repo
+  yum: name="{{ euca2ools_release_repo_url }}" state=present
+
+- name: Install EPEL release repo
+  yum: name="{{ epel_release_repo_url }}" state=present
+
+- name: Change the URL for the Eucalyptus repo
+  template: src=eucalyptus.repo.j2 dest=/etc/yum.repos.d/eucalyptus.repo
+
+- name: Change the URL for the euca2ools repo
+  template: src=euca2ools.repo.j2 dest=/etc/yum.repos.d/euca2ools.repo
